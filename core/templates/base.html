@@ -1,3 +1,4 @@
+{% load static tailwind_tags %}
 {% load django_browser_reload %}
 {% load static %}
 <!DOCTYPE html>
@@ -9,6 +10,7 @@
         Default value
         {% endblock %}</title>
         <link rel="stylesheet" href="{% static 'style.css' %}">
+        {% tailwind_css %}
 </head>
 <body>
     <nav></nav>

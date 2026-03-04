@@ -42,9 +42,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main', # Add the main app
-
+    'tailwind',  # Add the Tailwind CSS app
+    'theme',  # Add the Tailwind CSS theme app
     'django_browser_reload',  # Add the browser reload app
 ]
+
+TAILWIND_APP_NAME = 'theme'  # Specify the Tailwind CSS theme app name
+INTERNAL_IPS = ['127.0.0.1']  # Add internal IPs for browser reload
+
+NPM_BIN_PATH = os.getenv('NPM_BIN_PATH', '/usr/local/bin/npm')  # Set the path to npm, defaulting to /usr/local/bin/npm
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
