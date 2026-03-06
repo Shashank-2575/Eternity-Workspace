@@ -4,6 +4,9 @@ from django.shortcuts import render
 def home(request):
     return render(request, 'website/index.html')
 
+def virtual_machine(request):
+    return render(request, 'website/virtual_machine.html')
+
 def about(request):
     return HttpResponse("This is the about page.")
 

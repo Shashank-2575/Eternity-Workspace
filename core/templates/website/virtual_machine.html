@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Machine Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        os: {
+                            'bg': '#0B1121', 
+                            'panel': '#10172A', 
+                            'border': '#1E293B', 
+                            'primary': '#2DD4BF', // Teal
+                            'secondary': '#818CF8', // Indigo
+                            'error': '#F43F5E', // Rose/Red
+                            'muted': '#94A3B8', 
+                            'text': '#F1F5F9',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-os-bg text-os-text font-sans antialiased h-screen flex flex-col">
+
+    <nav class="h-12 border-b border-os-border flex items-center px-4 shrink-0">
+        <div class="flex items-center gap-2">
+            <span class="text-xs font-medium text-os-muted">Virtual Machines / My Instances</span>
+        </div>
+        <div class="ml-auto flex items-center gap-4 text-os-muted">
+            <i class="fas fa-search text-sm"></i>
+            <i class="fas fa-cog text-sm"></i>
+            <div class="w-7 h-7 bg-os-primary/20 text-os-primary rounded-full flex items-center justify-center font-bold text-xs border border-os-primary/30">D</div>
+        </div>
+    </nav>
+
+    <div class="flex flex-1 min-h-0">
+        <aside class="w-64 border-r border-os-border p-4 flex flex-col shrink-0">
+            <div class="flex items-center gap-2 mb-8">
+                <div class="w-6 h-6 rounded-full border-2 border-os-primary flex items-center justify-center">
+                    <div class="w-2.5 h-2.5 bg-os-primary rounded-full"></div>
+                </div>
+                <span class="font-bold text-sm">Virtual OS</span>
+            </div>
+            
+            <nav class="space-y-1">
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-muted text-sm hover:bg-os-border/50 transition-all">
+                    <i class="fas fa-th-large w-4 text-center"></i> Dashboard
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg bg-os-border text-os-primary font-medium text-sm">
+                    <i class="fas fa-server w-4 text-center"></i> Virtual Machines
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-muted text-sm hover:bg-os-border/50">
+                    <i class="fas fa-folder w-4 text-center"></i> System Files
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-muted text-sm hover:bg-os-border/50">
+                    <i class="fas fa-chart-line w-4 text-center"></i> System Monitor
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-muted text-sm hover:bg-os-border/50">
+                    <i class="fas fa-shield-alt w-4 text-center"></i> Security
+                </a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 p-8 overflow-y-auto">
+            <header class="flex justify-between items-end mb-8">
+                <div>
+                    <h1 class="text-3xl font-extrabold">Virtual Machines</h1>
+                    <p class="text-os-muted text-sm mt-1">Manage and monitor your active instances.</p>
+                </div>
+                <button class="bg-os-primary hover:bg-os-primary/90 text-os-bg font-bold py-2 px-6 rounded-lg text-sm transition-colors flex items-center gap-2">
+                    <i class="fas fa-plus"></i> Create New VM
+                </button>
+            </header>
+
+            <div class="flex gap-8">
+                <div class="flex-1 space-y-4">
+                    <div class="bg-os-panel border border-os-border p-5 rounded-2xl hover:border-os-primary transition-all group">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-os-bg border border-os-border rounded-xl flex items-center justify-center">
+                                    <i class="fab fa-ubuntu text-2xl text-os-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg">Ubuntu-Dev-Server</h3>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="w-2 h-2 rounded-full bg-os-primary animate-pulse"></span>
+                                        <span class="text-xs text-os-primary font-medium uppercase tracking-wider">Running</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button class="p-2 hover:bg-os-border rounded-lg text-os-muted hover:text-os-text"><i class="fas fa-terminal"></i></button>
+                                <button class="p-2 hover:bg-os-border rounded-lg text-os-muted hover:text-os-text"><i class="fas fa-pause"></i></button>
+                                <button class="p-2 hover:bg-os-border rounded-lg text-os-error/20 text-os-error"><i class="fas fa-power-off"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-3 gap-4 border-t border-os-border pt-4 mt-2">
+                            <div class="text-center border-r border-os-border">
+                                <p class="text-[10px] text-os-muted uppercase">CPU Usage</p>
+                                <p class="text-sm font-bold">12.4%</p>
+                            </div>
+                            <div class="text-center border-r border-os-border">
+                                <p class="text-[10px] text-os-muted uppercase">RAM Usage</p>
+                                <p class="text-sm font-bold">1.8 / 4 GB</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-[10px] text-os-muted uppercase">Uptime</p>
+                                <p class="text-sm font-bold">4h 22m</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-os-panel border border-os-border p-5 rounded-2xl hover:border-os-secondary transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-os-bg border border-os-border rounded-xl flex items-center justify-center">
+                                    <i class="fab fa-windows text-2xl text-os-secondary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg">Windows-11-PRO</h3>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="w-2 h-2 rounded-full bg-os-muted"></span>
+                                        <span class="text-xs text-os-muted font-medium uppercase tracking-wider">Suspended</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="p-2 hover:bg-os-border rounded-lg text-os-primary border border-os-primary/30 px-4 text-xs font-bold uppercase">Resume</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-[340px] space-y-6">
+                    <section class="bg-os-panel border border-os-border p-6 rounded-2xl">
+                        <h2 class="font-bold text-sm uppercase tracking-widest text-os-muted mb-6">Global Resources</h2>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-xs mb-2">
+                                    <span class="text-os-text">Total CPU Load</span>
+                                    <span class="text-os-primary">32%</span>
+                                </div>
+                                <div class="w-full bg-os-bg h-1.5 rounded-full overflow-hidden">
+                                    <div class="bg-os-primary h-full" style="width: 32%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between text-xs mb-2">
+                                    <span class="text-os-text">Memory Allocation</span>
+                                    <span class="text-os-secondary">8.2 / 16 GB</span>
+                                </div>
+                                <div class="w-full bg-os-bg h-1.5 rounded-full overflow-hidden">
+                                    <div class="bg-os-secondary h-full" style="width: 51%"></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-xs mb-2">
+                                    <span class="text-os-text">Virtual Disk Space</span>
+                                    <span class="text-os-muted">142 / 500 GB</span>
+                                </div>
+                                <div class="w-full bg-os-bg h-1.5 rounded-full overflow-hidden">
+                                    <div class="bg-os-muted h-full" style="width: 28%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="bg-os-panel border border-os-border p-6 rounded-2xl">
+                        <h2 class="font-bold text-sm uppercase tracking-widest text-os-muted mb-4">Network</h2>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 bg-os-primary rounded-full"></div>
+                                <span class="text-sm">V-Network Active</span>
+                            </div>
+                            <span class="text-xs text-os-muted font-mono">192.168.1.1</span>
+                        </div>
+                        <div class="mt-4 flex gap-2">
+                            <div class="h-8 flex-1 bg-os-bg rounded border border-os-border flex items-center justify-center text-[10px] text-os-primary">↑ 1.2 MB/s</div>
+                            <div class="h-8 flex-1 bg-os-bg rounded border border-os-border flex items-center justify-center text-[10px] text-os-secondary">↓ 4.8 MB/s</div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
+{% endblock %}
+{% tailwind_css %}

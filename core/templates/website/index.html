@@ -1,8 +1,309 @@
 {% extends 'base.html' %}
-
+{% load static tailwind_tags %}
 {% block title %}Home Page{% endblock %}
 
 {% block content %}
-    <h1 class="bg-amber-200 text-3xl">Welcome to the Home Page</h1>
-    <p class="bg-amber-700 text-white">This is the home page content.   </p>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual OS Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Custom Tailwind config to match the exact colors from your design
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        os: {
+                            'bg': '#0B1121', // Darkest background
+                            'panel': '#10172A', // Slightly lighter for panels
+                            'border': '#1E293B', // Border color
+                            'primary': '#2DD4BF', // Teal accent
+                            'secondary': '#818CF8', // Indigo/Purple accent
+                            'warning': '#FB923C', // Orange accent
+                            'muted': '#94A3B8', // Muted text/icons
+                            'text': '#F1F5F9', // Light text
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-os-bg text-os-text font-sans antialiased h-screen flex flex-col">
+
+    <nav class="h-12 border-b border-os-border flex items-center px-4 shrink-0">
+        <div class="flex items-center gap-2">
+            <div class="p-1.5 bg-os-border rounded">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" class="text-os-muted"><path d="M11 1L1 11M1 1L11 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="text-xs font-medium text-os-muted">Dashboard</span>
+        </div>
+        <div class="ml-auto flex items-center gap-4 text-os-muted">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.75" stroke="currentColor" stroke-width="1.5"/></svg>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.75" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"/></svg>
+            <div class="w-7 h-7 bg-os-border rounded-full flex items-center justify-center text-os-bg font-bold text-xs">d</div>
+        </div>
+    </nav>
+
+    <div class="flex flex-1 min-h-0">
+        <aside class="w-64 border-r border-os-border p-4 flex flex-col shrink-0">
+            <div class="flex items-center gap-2 mb-8">
+                <div class="w-6 h-6 rounded-full border-2 border-os-primary flex items-center justify-center">
+                    <div class="w-2.5 h-2.5 bg-os-primary rounded-full"></div>
+                </div>
+                <span class="font-bold text-sm">Virtual OS</span>
+            </div>
+            
+            <nav class="space-y-1.5 flex-1">
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg bg-os-border text-os-primary font-medium text-sm">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M1 2.5a.5.5 0 01.5-.5h13a.5.5 0 010 1H1.5a.5.5 0 01-.5-.5zM1 6.5a.5.5 0 01.5-.5h13a.5.5 0 010 1H1.5a.5.5 0 01-.5-.5zM1 10.5a.5.5 0 01.5-.5h13a.5.5 0 010 1H1.5a.5.5 0 01-.5-.5z"/></svg>
+                    Dashboard
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-muted text-sm hover:text-os-text">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"><rect x="3" y="2" width="10" height="12" rx="1" stroke-width="1.5"/></svg>
+                    Virtual Machines
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-muted text-sm hover:text-os-text">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"><path d="M3 2v12M13 2v12M3 14h10M3 2h10M5 5h6M5 8h6M5 11h4" stroke-width="1.5"/></svg>
+                    System Files
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-muted text-sm hover:text-os-text">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"><path d="M2 13V3a1 1 0 011-1h10a1 1 0 011 1v10M8 2v11" stroke-width="1.5"/></svg>
+                    System Monitor
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-muted text-sm hover:text-os-text">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"><path d="M2 13l4-5 3 3 5-7" stroke-width="1.5"/></svg>
+                    Analytics
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-muted text-sm hover:text-os-text">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"><path d="M4 3a1 1 0 011-1h6a1 1 0 011 1v8a5 5 0 01-8 0V3z" stroke-width="1.5"/></svg>
+                    Security
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-muted text-sm hover:text-os-text">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"><path d="M2 11h12M4 14l3-3 3 3M11 11l2 2" stroke-width="1.5"/></svg>
+                    Plans & Pricing
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-muted text-sm hover:text-os-text">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"><circle cx="8" cy="8" r="6" stroke-width="1.5"/><path d="M8 5a2.5 2.5 0 010 5" stroke-width="1.5"/></svg>
+                    Help Center
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-muted text-sm hover:text-os-text">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"><circle cx="8" cy="8" r="6" stroke-width="1.5"/><path d="M8 8l3-3" stroke-width="1.5"/></svg>
+                    Settings
+                </a>
+            </nav>
+            
+            <div class="mt-auto border-t border-os-border pt-4 text-xs text-os-muted text-center">
+                Last login: 07/03/2026
+            </div>
+        </aside>
+
+        <main class="flex-1 p-8 overflow-y-auto">
+            
+            <header class="mb-10">
+                <h1 class="text-3xl font-extrabold flex items-center gap-2">Welcome back, dhruv 👋</h1>
+                <p class="text-os-muted text-sm mt-1">Here's what's happening with your virtual machines today.</p>
+            </header>
+
+            <section class="grid grid-cols-4 gap-4 mb-6">
+                <div class="bg-os-panel border border-os-border p-5 rounded-xl flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-os-muted mb-1">Total Sessions</p>
+                        <p class="text-3xl font-bold">24</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-os-border border border-os-border flex items-center justify-center">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-os-primary"><path d="M3 13h18M3 17h18M3 9h18" stroke-width="1.5"/></svg>
+                    </div>
+                </div>
+                
+                <div class="bg-os-panel border border-os-border p-5 rounded-xl flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-os-muted mb-1">Active VMs</p>
+                        <p class="text-3xl font-bold">2</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-os-border border border-os-border flex items-center justify-center">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-os-secondary"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10h10M7 6h6" stroke-width="1.5"/></svg>
+                    </div>
+                </div>
+                
+                <div class="bg-os-panel border border-os-border p-5 rounded-xl flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-os-muted mb-1">Storage Used</p>
+                        <p class="text-3xl font-bold">4.2 GB</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-os-border border border-os-border flex items-center justify-center">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-os-muted"><path d="M5 11l7 7 7-7" stroke-width="1.5"/><path d="M12 18V3" stroke-width="1.5"/></svg>
+                    </div>
+                </div>
+                
+                <div class="bg-os-panel border border-os-border p-5 rounded-xl flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-os-muted mb-1">Total Duration</p>
+                        <p class="text-3xl font-bold">18h 32m</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-os-border border border-os-border flex items-center justify-center">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-os-secondary"><path d="M12 1v22M12 12l9 9M12 12l-9 9" stroke-width="1.5"/></svg>
+                    </div>
+                </div>
+            </section>
+
+            <div class="bg-os-panel border border-os-border p-4 rounded-xl flex items-center gap-3 mb-8">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" class="text-os-secondary"><circle cx="10" cy="10" r="7.5" stroke-width="1.5"/><path d="M10 6v4l3 3" stroke-width="1.5"/></svg>
+                <div class="flex-1 text-sm">
+                    <span class="font-medium text-os-secondary">AI Recommendation</span>
+                    <span class="text-os-muted ml-2">Based on your usage patterns, we recommend <span class="font-bold text-os-text">Ubuntu 22.04 with 4GB RAM</span> for your development workflow. This will optimize performance and reduce load times by 20%.</span>
+                </div>
+            </div>
+
+            <div class="flex gap-6">
+                <div class="flex-1 space-y-6">
+                    <section class="bg-os-panel border border-os-border p-6 rounded-xl">
+                        <div class="flex items-center justify-between mb-5">
+                            <div>
+                                <h2 class="font-semibold text-lg">Quick Launch</h2>
+                                <p class="text-xs text-os-muted mt-0.5">Start a virtual machine instantly.</p>
+                            </div>
+                            <button class="text-xs text-os-muted hover:text-os-text font-medium">View All</button>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3.5 bg-os-bg border border-os-border rounded-lg">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg bg-os-panel border border-os-border flex items-center justify-center">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" class="text-os-primary"><path d="M10 17.5a7.5 7.5 0 100-15 7.5 7.5 0 000 15z" stroke-width="1.5"/><circle cx="10" cy="10" r="1" stroke-width="1.5"/></svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-sm">Ubuntu 22.04</p>
+                                        <p class="text-xs text-os-muted">Perfect for development</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <span class="text-xs px-2.5 py-1 rounded-full bg-os-border text-os-primary font-medium">Ready</span>
+                                    <button class="text-xs px-3 py-1.5 rounded-md border border-os-primary text-os-primary font-medium flex items-center gap-1.5 hover:bg-os-primary/10">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M2.5 1v8l6-4-6-4z"/></svg>
+                                        Launch
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3.5 bg-os-bg border border-os-border rounded-lg">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg bg-os-panel border border-os-border flex items-center justify-center">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" class="text-os-muted"><rect x="3" y="3" width="14" height="14" rx="1.5" stroke-width="1.5"/></svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-sm">Windows 11</p>
+                                        <p class="text-xs text-os-muted">Full desktop experience</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <span class="text-xs px-2.5 py-1 rounded-full bg-os-border text-os-primary font-medium">Ready</span>
+                                    <button class="text-xs px-3 py-1.5 rounded-md border border-os-primary text-os-primary font-medium flex items-center gap-1.5 hover:bg-os-primary/10">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M2.5 1v8l6-4-6-4z"/></svg>
+                                        Launch
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-3.5 bg-os-bg border border-os-border rounded-lg">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-lg bg-os-panel border border-os-border flex items-center justify-center">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" class="text-os-muted"><path d="M6 16v1.5a1.5 1.5 0 103 0V16M11 16v1.5a1.5 1.5 0 103 0V16" stroke-width="1.5"/><rect x="6" y="3.5" width="8" height="13" rx="1.5" stroke-width="1.5"/></svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-sm">Android 13</p>
+                                        <p class="text-xs text-os-muted">Mobile app testing</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <span class="text-xs px-2.5 py-1 rounded-full bg-os-border text-os-primary font-medium">Ready</span>
+                                    <button class="text-xs px-3 py-1.5 rounded-md border border-os-primary text-os-primary font-medium flex items-center gap-1.5 hover:bg-os-primary/10">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M2.5 1v8l6-4-6-4z"/></svg>
+                                        Launch
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="w-[320px] space-y-6">
+                    <section class="bg-os-panel border border-os-border p-6 rounded-xl">
+                        <div class="flex items-center justify-between mb-1">
+                            <h2 class="font-semibold text-lg flex items-center gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" class="text-os-muted"><path d="M11 1L1 11M1 1L11 11" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                Local Disk (C:)
+                            </h2>
+                        </div>
+                        <p class="text-xs text-os-muted mb-4">246 GB of 500 GB used</p>
+                        
+                        <div class="w-full bg-os-border h-2.5 rounded-full overflow-hidden mb-5">
+                            <div class="bg-os-primary h-full" style="width: 49.2%"></div>
+                        </div>
+                        
+                        <div class="space-y-1.5 text-xs">
+                            <div class="flex justify-between items-center"><span class="text-os-muted">Documents</span><span class="font-medium">120 GB</span></div>
+                            <div class="flex justify-between items-center"><span class="text-os-muted">System</span><span class="font-medium">85 GB</span></div>
+                            <div class="flex justify-between items-center"><span class="text-os-muted">Media</span><span class="font-medium">41 GB</span></div>
+                        </div>
+                        
+                        <button class="w-full mt-6 text-xs text-center py-2.5 bg-os-bg border border-os-border rounded-lg text-os-text font-medium hover:border-os-muted">
+                            Browse System Files
+                        </button>
+                    </section>
+                    
+                    <section class="bg-os-panel border border-os-border p-6 rounded-xl">
+                        <h2 class="font-semibold text-lg mb-0.5">Recent Local Files</h2>
+                        <p class="text-xs text-os-muted mb-5">Quick access from your hard disk.</p>
+                        
+                        <div class="space-y-3.5">
+                            <div class="flex items-center justify-between text-xs">
+                                <div class="text-os-text">project-report.pdf</div>
+                                <div class="text-os-muted">12 MB - 2 hours ago</div>
+                            </div>
+                            <div class="flex items-center justify-between text-xs">
+                                <div class="text-os-text">presentation.pptx</div>
+                                <div class="text-os-muted">4.5 MB - 1 day ago</div>
+                            </div>
+                            <div class="flex items-center justify-between text-xs">
+                                <div class="text-os-text">code-backup.zip</div>
+                                <div class="text-os-muted">132 MB - 2 days ago</div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <section class="bg-os-panel border border-os-border p-6 rounded-xl mt-6">
+                <h2 class="font-semibold text-lg mb-5">System Alerts</h2>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-lg bg-os-border/50 flex items-center justify-center text-os-primary">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M2.5 15.5l15-11M2.5 11l15 6" stroke-width="1.5"/></svg>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-os-text">Performance improved by 20%</p>
+                            <p class="text-xs text-os-muted">Your VMs are running smoothly.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-lg bg-os-border/50 flex items-center justify-center text-os-warning">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"><circle cx="10" cy="10" r="7.5" stroke-width="1.5"/><path d="M10 6v4l3 3" stroke-width="1.5"/></svg>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-os-text">Scheduled maintenance</p>
+                            <p class="text-xs text-os-muted">Tonight at 10 PM EST.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="h-10"></div> </main>
+    </div>
+
+</body>
+</html>
 {% endblock %}
+{% tailwind_css %}
