@@ -17,10 +17,10 @@ def help(request):
     return render(request, 'website/help.html')
 
 def about(request):
-    return HttpResponse("This is the about page.")
+    return render(request, 'website/about.html')
 
 def contact(request):
-    return HttpResponse("This is the contact page.")
+    return render(request, 'website/contact.html')
 
 def login(request):
     return render(request, 'website/login.html')    
