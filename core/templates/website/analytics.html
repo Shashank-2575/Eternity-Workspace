@@ -1,0 +1,351 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual OS Hub - Analytics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Custom Tailwind config for the exact colors from your design
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        os: {
+                            'bg': '#0B111D', // Darkest background
+                            'panel': '#121927', // Lighter panel/card background
+                            'border': '#1F2937', // Border color
+                            'text-light': '#F1F5F9', // Primary text
+                            'text-muted': '#94A3B8', // Muted text
+                            'active': '#0D273A', // Active sidebar background
+                            
+                            // Highlight Colors from your images
+                            'highlight-blue': '#22C55E', // Green/Blue stats highlight
+                            'highlight-purple': '#A855F7', // Purple stats highlight
+                            'highlight-cyan': '#06B6D4', // Cyan stats highlight
+                            'highlight-pink': '#EC4899', // Pink stats highlight
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-os-bg text-os-text-light font-sans h-screen flex flex-col antialiased">
+
+    <nav class="h-14 border-b border-os-border flex items-center justify-between px-6 shrink-0">
+        <div class="flex items-center gap-1 text-xs text-os-text-muted">
+            <svg class="w-4 h-4" viewBox="0 0 16 16" fill="currentColor"><path d="M1 2.5a.5.5 0 01.5-.5h13a.5.5 0 010 1H1.5a.5.5 0 01-.5-.5zM1 6.5a.5.5 0 01.5-.5h13a.5.5 0 010 1H1.5a.5.5 0 01-.5-.5zM1 10.5a.5.5 0 01.5-.5h13a.5.5 0 010 1H1.5a.5.5 0 01-.5-.5z"/></svg>
+            Analytics
+        </div>
+        <div class="flex items-center gap-4 text-os-text-muted">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+            <div class="w-7 h-7 bg-os-highlight-cyan rounded-full flex items-center justify-center text-xs font-bold text-os-bg">D</div>
+        </div>
+    </nav>
+
+    <div class="flex flex-1 min-h-0">
+        <aside class="w-60 border-r border-os-border p-4 flex flex-col shrink-0">
+            <div class="flex items-center gap-2 mb-8">
+                <div class="w-7 h-7 rounded-full bg-os-highlight-cyan flex items-center justify-center">
+                    <div class="w-3 h-3 bg-os-bg rounded-full"></div>
+                </div>
+                <span class="font-bold text-sm tracking-tight">Virtual OS Hub</span>
+            </div>
+            
+            <nav class="space-y-1.5 flex-1">
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-text-muted text-sm hover:text-os-text-light hover:bg-os-panel">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m0 0l-7 7-7-7M19 10v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    Dashboard
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-text-muted text-sm hover:text-os-text-light hover:bg-os-panel">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    Virtual Machines
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-text-muted text-sm hover:text-os-text-light hover:bg-os-panel">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2z"></path></svg>
+                    System Files
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-text-muted text-sm hover:text-os-text-light hover:bg-os-panel">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                    System Monitor
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg bg-os-active text-os-highlight-cyan font-medium text-sm border-l-2 border-os-highlight-cyan">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10a2 2 0 002 2h2a2 2 0 002-2V9a2 2 0 00-2-2h-2a2 2 0 00-2 2v10a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    Analytics
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-text-muted text-sm hover:text-os-text-light hover:bg-os-panel">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    Security
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-text-muted text-sm hover:text-os-text-light hover:bg-os-panel">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 8h6m-5 0a3 3 0 110 6H9l3 3m-3-6h6m6 1a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Plans & Pricing
+                </a>
+            </nav>
+            
+            <div class="mt-auto border-t border-os-border pt-4 text-sm text-os-text-muted">
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2 rounded-lg hover:text-os-text-light hover:bg-os-panel">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-1 1v2a1 1 0 001 1h2a1 1 0 001-1V8a1 1 0 00-1-1h-2z"></path><path d="M12 14v4M12 18h.01"></path></svg>
+                    Help Center
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2 rounded-lg hover:text-os-text-light hover:bg-os-panel">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Settings
+                </a>
+            </div>
+        </aside>
+
+        <main class="flex-1 p-8 overflow-y-auto">
+            
+            <header class="flex justify-between items-start mb-10">
+                <div>
+                    <h1 class="text-2xl font-bold">Usage Analytics</h1>
+                    <p class="text-os-text-muted text-sm mt-1">Track your activity and performance insights</p>
+                </div>
+                <div class="flex items-center gap-2 bg-os-panel border border-os-border px-3 py-1.5 rounded-lg text-sm text-os-text-muted">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    Last 30 days
+                    <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+            </header>
+
+            <section class="grid grid-cols-4 gap-6 mb-8">
+                <div class="bg-os-panel border border-os-border p-6 rounded-xl flex items-start gap-5">
+                    <div class="w-12 h-12 rounded-xl bg-os-active border border-os-border flex items-center justify-center text-os-highlight-cyan shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="text-xs text-os-text-muted">Total Time Used</p>
+                            <span class="text-xs text-os-highlight-blue font-medium px-2.5 py-1 rounded-full bg-os-highlight-blue/10">+15%</span>
+                        </div>
+                        <p class="text-xl font-semibold">124h 35m</p>
+                    </div>
+                </div>
+                
+                <div class="bg-os-panel border border-os-border p-6 rounded-xl flex items-start gap-5">
+                    <div class="w-12 h-12 rounded-xl bg-os-highlight-purple/10 border border-os-border flex items-center justify-center text-os-highlight-purple shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10a2 2 0 002 2h2a2 2 0 002-2V9a2 2 0 00-2-2h-2a2 2 0 00-2 2v10a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="text-xs text-os-text-muted">Total Sessions</p>
+                            <span class="text-xs text-os-highlight-blue font-medium px-2.5 py-1 rounded-full bg-os-highlight-blue/10">+22%</span>
+                        </div>
+                        <p class="text-xl font-semibold">186</p>
+                    </div>
+                </div>
+                
+                <div class="bg-os-panel border border-os-border p-6 rounded-xl flex items-start gap-5">
+                    <div class="w-12 h-12 rounded-xl bg-os-highlight-cyan/10 border border-os-border flex items-center justify-center text-os-highlight-cyan shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="text-xs text-os-text-muted">Storage Used</p>
+                            <span class="text-xs text-os-highlight-blue font-medium px-2.5 py-1 rounded-full bg-os-highlight-blue/10">+8%</span>
+                        </div>
+                        <p class="text-xl font-semibold">5.2 GB</p>
+                    </div>
+                </div>
+                
+                <div class="bg-os-panel border border-os-border p-6 rounded-xl flex items-start gap-5">
+                    <div class="w-12 h-12 rounded-xl bg-os-highlight-pink/10 border border-os-border flex items-center justify-center text-os-highlight-pink shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="text-xs text-os-text-muted">Current Streak</p>
+                            <span class="text-xs text-os-highlight-cyan font-medium px-3.5 py-1 rounded-full bg-os-active">Keep going!</span>
+                        </div>
+                        <p class="text-xl font-semibold">12 days</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid grid-cols-3 gap-6 mb-8">
+                <div class="col-span-1 bg-os-panel border border-os-border p-6 rounded-xl">
+                    <h2 class="text-lg font-semibold">Most Used Operating Systems</h2>
+                    <p class="text-xs text-os-text-muted mb-8">Distribution of your VM usage by OS</p>
+                    
+                    <div class="relative flex flex-col items-center gap-1">
+                        <p class="text-os-highlight-blue text-xs">Ubuntu 45%</p>
+                        <svg class="w-48 h-48 rotate-90" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="40" fill="transparent" stroke="#007BFF" stroke-width="20" stroke-dasharray="282.7" stroke-dashoffset="155.5"></circle> <circle cx="50" cy="50" r="40" fill="transparent" stroke="#A855F7" stroke-width="20" stroke-dasharray="282.7" stroke-dashoffset="240.3"></circle> <circle cx="50" cy="50" r="40" fill="transparent" stroke="#06B6D4" stroke-width="20" stroke-dasharray="282.7" stroke-dashoffset="261.5"></circle> <circle cx="50" cy="50" r="40" fill="transparent" stroke="#EC4899" stroke-width="20" stroke-dasharray="282.7" stroke-dashoffset="274.2"></circle> </svg>
+                        <p class="text-os-highlight-pink text-xs">macOS 10%</p>
+                    </div>
+                    <p class="text-os-highlight-cyan text-xs text-center mt-2">Android 15%</p>
+
+                    <div class="grid grid-cols-2 gap-x-6 gap-y-3 mt-10 text-xs">
+                        <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-os-highlight-blue"></span><span class="text-os-text-muted">Ubuntu: 45%</span></div>
+                        <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-os-highlight-purple"></span><span class="text-os-text-muted">Windows: 30%</span></div>
+                        <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-os-highlight-cyan"></span><span class="text-os-text-muted">Android: 15%</span></div>
+                        <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-os-highlight-pink"></span><span class="text-os-text-muted">macOS: 10%</span></div>
+                    </div>
+                </div>
+
+                <div class="col-span-2 bg-os-panel border border-os-border p-6 rounded-xl flex flex-col">
+                    <h2 class="text-lg font-semibold">Weekly Activity</h2>
+                    <p class="text-xs text-os-text-muted mb-6">Hours and sessions by day of the week</p>
+                    
+                    <div class="flex items-end flex-1 gap-2.5 text-xs font-mono text-os-text-muted h-52">
+                        <div class="flex flex-col-reverse justify-between h-full w-5 text-right -mb-3 pb-3">
+                            <span>0</span><span>3</span><span>6</span><span>9</span><span>12</span>
+                        </div>
+                        
+                        <div class="flex-1 flex items-end gap-2.5 h-full border-b border-os-border pb-1 pr-4">
+                            <div class="flex flex-col items-center gap-0.5 flex-1">
+                                <div class="w-full h-[30%] bg-os-highlight-blue rounded"></div>
+                                <div class="w-full h-[10%] bg-os-highlight-purple rounded-t"></div>
+                                <span class="text-os-text-muted mt-2 font-sans">Mon</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-0.5 flex-1">
+                                <div class="w-full h-[15%] bg-os-highlight-blue rounded"></div>
+                                <div class="w-full h-[25%] bg-os-highlight-purple rounded-t"></div>
+                                <span class="text-os-text-muted mt-2 font-sans">Tue</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-0.5 flex-1">
+                                <div class="w-full h-[55%] bg-os-highlight-blue rounded"></div>
+                                <div class="w-full h-[20%] bg-os-highlight-purple rounded-t"></div>
+                                <span class="text-os-text-muted mt-2 font-sans">Wed</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-0.5 flex-1">
+                                <div class="w-full h-[30%] bg-os-highlight-blue rounded"></div>
+                                <div class="w-full h-[20%] bg-os-highlight-purple rounded-t"></div>
+                                <span class="text-os-text-muted mt-2 font-sans">Thu</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-0.5 flex-1">
+                                <div class="w-full h-[65%] bg-os-highlight-blue rounded"></div>
+                                <div class="w-full h-[25%] bg-os-highlight-purple rounded-t"></div>
+                                <span class="text-os-text-muted mt-2 font-sans">Fri</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-0.5 flex-1">
+                                <div class="w-full h-[10%] bg-os-highlight-blue rounded"></div>
+                                <div class="w-full h-[15%] bg-os-highlight-purple rounded-t"></div>
+                                <span class="text-os-text-muted mt-2 font-sans">Sat</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-0.5 flex-1">
+                                <div class="w-full h-[20%] bg-os-highlight-blue rounded"></div>
+                                <div class="w-full h-[10%] bg-os-highlight-purple rounded-t"></div>
+                                <span class="text-os-text-muted mt-2 font-sans">Sun</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-center gap-5 mt-6 text-xs text-os-text-muted">
+                        <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 bg-os-highlight-blue rounded-sm"></span>Hours</div>
+                        <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 bg-os-highlight-purple rounded-sm"></span>Sessions</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-os-panel border border-os-border p-6 rounded-xl mb-8">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h2 class="text-lg font-semibold">Usage Trend</h2>
+                        <p class="text-xs text-os-text-muted mt-0.5">Total hours over the last 7 months</p>
+                    </div>
+                    <span class="text-xs text-os-highlight-blue font-medium px-2.5 py-1 rounded-full bg-os-highlight-blue/10 flex items-center gap-1.5"><svg class="w-3 h-3" viewBox="0 0 12 12" fill="none" stroke="currentColor"><path d="M1 9.5l4-4 2 2 4-4"></path><path d="M8 2h3v3"></path></svg>+35% growth</span>
+                </div>
+                
+                <div class="flex items-end gap-3 text-xs font-mono text-os-text-muted h-56 mt-6 pb-2">
+                    <div class="flex flex-col-reverse justify-between h-full w-5 text-right pb-11 pr-1">
+                        <span>0</span><span>25</span><span>50</span><span>75</span><span>100</span>
+                    </div>
+                    
+                    <div class="flex-1 h-full border-b border-l border-os-border relative overflow-hidden">
+                        <div class="absolute inset-0 grid grid-rows-4 pointer-events-none">
+                            <div class="border-t border-os-border"></div>
+                            <div class="border-t border-os-border"></div>
+                            <div class="border-t border-os-border"></div>
+                            <div class="border-t border-os-border"></div>
+                        </div>
+                        
+                        <svg class="absolute inset-0 w-full h-full text-os-highlight-blue" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <path d="M 0 50 Q 16.6 42, 33.3 43 Q 50 44, 66.6 35 Q 83.3 32, 100 25" stroke="currentColor" stroke-width="2" fill="none"></path>
+                            <circle cx="0" cy="50" r="1.5" fill="#FFF" stroke="currentColor" stroke-width="1"></circle>
+                            <circle cx="33.3" cy="43" r="1.5" fill="#FFF" stroke="currentColor" stroke-width="1"></circle>
+                            <circle cx="66.6" cy="35" r="1.5" fill="#FFF" stroke="currentColor" stroke-width="1"></circle>
+                            <circle cx="100" cy="25" r="1.5" fill="#FFF" stroke="currentColor" stroke-width="1"></circle>
+                        </svg>
+                        
+                        <svg class="absolute inset-0 w-full h-full text-os-highlight-purple/60" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <path d="M 0 65 Q 16.6 62, 33.3 64 Q 50 67, 66.6 60 Q 83.3 58, 100 52" stroke="currentColor" stroke-width="1.5" fill="none"></path>
+                        </svg>
+                        
+                        <svg class="absolute inset-0 w-full h-full text-os-highlight-pink/30" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <path d="M 0 80 Q 16.6 78, 33.3 80 Q 50 82, 66.6 75 Q 83.3 73, 100 68" stroke="currentColor" stroke-width="1" fill="none"></path>
+                        </svg>
+                        
+                        <svg class="absolute inset-0 w-full h-full text-os-highlight-cyan/40" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <path d="M 0 90 Q 16.6 88, 33.3 90 Q 50 92, 66.6 85 Q 83.3 83, 100 78" stroke="currentColor" stroke-width="1" fill="none" stroke-dasharray="2 2"></path>
+                        </svg>
+
+                        <svg class="absolute inset-0 w-full h-full text-os-highlight-blue/10" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <path d="M 0 50 Q 16.6 42, 33.3 43 Q 50 44, 66.6 35 Q 83.3 32, 100 25 L 100 100 L 0 100 Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-1 text-xs font-mono text-os-text-muted mt-2 pr-1 ml-6 pb-2 pl-2">
+                    <span class="w-1/12 text-center -ml-2">Apr</span>
+                    <span class="flex-1 text-center -ml-3">May</span>
+                    <span class="flex-1 text-center -ml-3">Jun</span>
+                    <span class="flex-1 text-center -ml-3">Jul</span>
+                    <span class="flex-1 text-center -ml-3">Aug</span>
+                    <span class="flex-1 text-center -ml-3">Sep</span>
+                    <span class="w-1/12 text-center -mr-2">Oct</span>
+                </div>
+            </section>
+
+            <section class="grid grid-cols-3 gap-6 mb-8">
+                <div class="col-span-2 bg-os-panel border border-os-border p-6 rounded-xl flex flex-col">
+                    <div class="flex items-center gap-3 mb-6">
+                        <svg class="w-6 h-6 text-os-highlight-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+                        <div class="flex-1">
+                            <h2 class="text-lg font-semibold">Achievements & Badges</h2>
+                            <p class="text-xs text-os-text-muted mt-0.5">Unlock rewards by reaching milestones</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 flex-1">
+                        <div class="bg-os-bg border border-os-border p-5 rounded-lg text-center flex flex-col items-center justify-center gap-1.5 border-l-2 border-l-os-highlight-cyan active-badge">
+                            <div class="w-10 h-10 flex items-center justify-center text-3xl">🚀</div>
+                            <p class="font-semibold text-sm">Early Adopter</p>
+                            <p class="text-xs text-os-text-muted">First 100 users</p>
+                            <span class="text-[10px] text-os-highlight-cyan font-medium px-2.5 py-0.5 rounded-full bg-os-active mt-1.5">Unlocked</span>
+                        </div>
+                        <div class="bg-os-bg border border-os-border p-5 rounded-lg text-center flex flex-col items-center justify-center gap-1.5 border-l-2 border-l-os-highlight-purple">
+                            <div class="w-10 h-10 flex items-center justify-center text-3xl">⚡️</div>
+                            <p class="font-semibold text-sm">Power User</p>
+                            <p class="text-xs text-os-text-muted">100+ sessions</p>
+                            <span class="text-[10px] text-os-highlight-purple font-medium px-2.5 py-0.5 rounded-full bg-os-highlight-purple/10 mt-1.5">Unlocked</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-span-1 bg-os-panel border border-os-border p-6 rounded-xl flex flex-col items-center justify-center text-center">
+                    <div class="w-14 h-14 rounded-full bg-os-highlight-pink/10 border border-os-border flex items-center justify-center text-3xl text-os-highlight-pink mb-4 shrink-0">
+                        ⚡️
+                    </div>
+                    <p class="text-2xl font-bold">12 Day Streak!</p>
+                    <p class="text-sm text-os-text-muted mt-1 max-w-[200px]">Keep using the platform daily to maintain your streak</p>
+                </div>
+            </section>
+            
+            <div class="h-10"></div> </main>
+    </div>
+
+</body>
+</html>
+
+{% endblock %}
+{% tailwind_css %}

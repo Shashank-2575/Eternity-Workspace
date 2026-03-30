@@ -7,6 +7,15 @@ def home(request):
 def virtual_machine(request):
     return render(request, 'website/virtual_machine.html')
 
+def analytics(request):
+    return render(request, 'website/analytics.html')
+
+def price(request):
+    return render(request, 'website/price.html')
+
+def help(request):
+    return render(request, 'website/help.html')
+
 def about(request):
     return HttpResponse("This is the about page.")
 

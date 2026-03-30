@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+{% block title %}login{% endblock %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual OS Hub - Help Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Custom Tailwind config to match the exact colors from your design
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        os: {
+                            'bg': '#0B111D', // Darkest background
+                            'panel': '#121927', // Lighter panel/card background
+                            'border': '#1F2937', // Border color
+                            'text-light': '#F1F5F9', // Primary text
+                            'text-muted': '#94A3B8', // Muted text
+                            'active': '#0D273A', // Active sidebar background
+                            
+                            // Highlight/Accent Colors from your images
+                            'teal': '#2EDBB1', // Primary Teal accent
+                            'purple-highlight': '#818CF8', // Indigo/Purple highlight
+                            'cyan-highlight': '#06B6D4', // Cyan highlight
+                            'pink-highlight': '#EC4899', // Pink highlight
+                        }
+                    },
+                    boxShadow: {
+                        'os-active': '0 0 10px -2px rgba(46, 219, 177, 0.5)', // Subtle teal glow
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-os-bg text-os-text-light font-sans h-screen flex flex-col antialiased">
+
+    <nav class="h-14 border-b border-os-border flex items-center px-6 shrink-0 relative z-10">
+        <div class="flex items-center gap-1.5 text-xs text-os-text-muted">
+            <svg class="w-4 h-4" viewBox="0 0 16 16" fill="currentColor"><path d="M1 2.5a.5.5 0 01.5-.5h13a.5.5 0 010 1H1.5a.5.5 0 01-.5-.5zM1 6.5a.5.5 0 01.5-.5h13a.5.5 0 010 1H1.5a.5.5 0 01-.5-.5zM1 10.5a.5.5 0 01.5-.5h13a.5.5 0 010 1H1.5a.5.5 0 01-.5-.5z"/></svg>
+            Help Center
+        </div>
+        <div class="flex items-center gap-4 text-os-text-muted absolute right-6">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+            <div class="w-7 h-7 bg-os-teal rounded-full flex items-center justify-center text-xs font-bold text-os-bg">d</div>
+        </div>
+    </nav>
+
+    <div class="flex flex-1 min-h-0 relative z-0">
+        <aside class="w-60 border-r border-os-border p-4 flex flex-col shrink-0">
+            <div class="flex items-center gap-2 mb-8">
+                <div class="w-7 h-7 rounded-full bg-os-teal flex items-center justify-center shadow-os-active">
+                    <div class="w-3 h-3 bg-os-bg rounded-full"></div>
+                </div>
+                <span class="font-bold text-sm tracking-tight">Virtual OS Hub</span>
+            </div>
+            
+            <nav class="space-y-1.5 flex-1">
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-text-muted text-sm hover:text-os-text-light hover:bg-os-panel">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m0 0l-7 7-7-7M19 10v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    Dashboard
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-text-muted text-sm hover:text-os-text-light hover:bg-os-panel">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    Virtual Machines
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-text-muted text-sm hover:text-os-text-light hover:bg-os-panel">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2z"></path></svg>
+                    System Files
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-text-muted text-sm hover:text-os-text-light hover:bg-os-panel">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                    System Monitor
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-text-muted text-sm hover:text-os-text-light hover:bg-os-panel">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10a2 2 0 002 2h2a2 2 0 002-2V9a2 2 0 00-2-2h-2a2 2 0 00-2 2v10a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    Analytics
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-text-muted text-sm hover:text-os-text-light hover:bg-os-panel">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    Security
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-os-text-muted text-sm hover:text-os-text-light hover:bg-os-panel">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 8h6m-5 0a3 3 0 110 6H9l3 3m-3-6h6m6 1a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Plans & Pricing
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg bg-os-active text-os-teal font-medium text-sm border-l-2 border-os-teal shadow-os-active">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M18.364 5.636l-3.536 3.536m0 0l-3.536 3.536m3.536-3.536L11.293 15.707a1 1 0 01-1.414 0l-4.243-4.243a1 1 0 010-1.414l5.657-5.657a1 1 0 011.414 0l4.243 4.243z"></path></svg>
+                    Help Center
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3.5 py-2 rounded-lg hover:text-os-text-light hover:bg-os-panel">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Settings
+                </a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 p-8 overflow-y-auto">
+            
+            <header class="flex justify-between items-start mb-10">
+                <div>
+                    <h1 class="text-2xl font-bold flex items-center gap-1.5">Help Center<span class="inline-block w-5 h-5 bg-os-text-muted" style="clip-path: polygon(100% 50%, 0 0, 0 100%);"></span></h1>
+                    <p class="text-os-text-muted text-sm mt-1">Find answers to common questions and learn how to get the most out of Virtual OS Hub</p>
+                </div>
+                <div class="flex items-center gap-2 bg-os-panel border border-os-border px-3 py-1.5 rounded-lg text-sm text-os-text-muted">
+                    Last 30 days
+                    <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+            </header>
+
+            <div class="relative mb-10">
+                <input type="text" placeholder="Search for articles, guides, or common issues..." class="w-full bg-os-panel border border-os-border rounded-lg py-3.5 pl-12 pr-6 text-sm text-os-text-muted focus:ring-1 focus:ring-os-teal focus:border-os-teal focus:text-os-text-light outline-none transition">
+                <svg class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-os-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                <div class="bg-os-panel border border-os-border p-6 rounded-xl group hover:border-os-teal transition">
+                    <div class="flex items-center gap-4 mb-5">
+                        <div class="w-12 h-12 rounded-xl bg-os-active border border-os-border flex items-center justify-center text-os-teal shrink-0 shadow-os-active">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                        </div>
+                        <h2 class="text-lg font-semibold text-os-text-light">Getting Started</h2>
+                    </div>
+                    <p class="text-sm text-os-text-muted mb-6 flex-1">New to Virtual OS Hub? Start here to learn the basics and set up your first virtual machine.</p>
+                    <a href="#" class="text-sm text-os-teal font-medium flex items-center gap-1.5 group-hover:brightness-110">View 8 articles<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></a>
+                </div>
+                
+                <div class="bg-os-panel border border-os-border p-6 rounded-xl group hover:border-os-teal transition">
+                    <div class="flex items-center gap-4 mb-5">
+                        <div class="w-12 h-12 rounded-xl bg-os-purple-highlight/10 border border-os-border flex items-center justify-center text-os-purple-highlight shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                        </div>
+                        <h2 class="text-lg font-semibold text-os-text-light">Account & Billing</h2>
+                    </div>
+                    <p class="text-sm text-os-text-muted mb-6 flex-1">Manage your subscription, billing methods, and personal information with ease.</p>
+                    <a href="#" class="text-sm text-os-purple-highlight font-medium flex items-center gap-1.5 hover:brightness-110">View 12 articles<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></a>
+                </div>
+                
+                <div class="bg-os-panel border border-os-border p-6 rounded-xl group hover:border-os-teal transition">
+                    <div class="flex items-center gap-4 mb-5">
+                        <div class="w-12 h-12 rounded-xl bg-os-cyan-highlight/10 border border-os-border flex items-center justify-center text-os-cyan-highlight shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <h2 class="text-lg font-semibold text-os-text-light">System Configuration</h2>
+                    </div>
+                    <p class="text-sm text-os-text-muted mb-6 flex-1">Detailed guides on optimizing VM performance and configuring network settings.</p>
+                    <a href="#" class="text-sm text-os-cyan-highlight font-medium flex items-center gap-1.5 hover:brightness-110">View 15 articles<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></a>
+                </div>
+                
+                <div class="bg-os-panel border border-os-border p-6 rounded-xl group hover:border-os-teal transition">
+                    <div class="flex items-center gap-4 mb-5">
+                        <div class="w-12 h-12 rounded-xl bg-os-pink-highlight/10 border border-os-border flex items-center justify-center text-os-pink-highlight shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h2 class="text-lg font-semibold text-os-text-light">Security & Permissions</h2>
+                    </div>
+                    <p class="text-sm text-os-text-muted mb-6 flex-1">Learn about user permissions, SSL setup, and multi-factor authentication for data protection.</p>
+                    <a href="#" class="text-sm text-os-pink-highlight font-medium flex items-center gap-1.5 hover:brightness-110">View 10 articles<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg></a>
+                </div>
+            </section>
+
+            <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div class="md:col-span-2 bg-os-panel border border-os-border p-6 rounded-xl flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-os-bg border border-os-border flex items-center justify-center text-os-cyan-highlight shrink-0 mt-1">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-os-text-light">Still need help? Submit a ticket</h2>
+                        <p class="text-sm text-os-text-muted mt-2 mb-6 max-w-xl">Can't find the answer in our documentation? Contact our technical support team by opening a ticket. We are here to assist you.</p>
+                        <button class="bg-os-cyan-highlight text-os-bg font-semibold text-sm py-2 px-5 rounded-lg flex items-center gap-1.5 hover:brightness-110">Open Support Ticket<svg class="w-3.5 h-3.5" viewBox="0 0 12 12" fill="none" stroke="currentColor"><path d="M1 11l10-10m0 0H4m7 0v7"></path></svg></button>
+                    </div>
+                </div>
+                
+                <div class="bg-os-panel border border-os-border p-6 rounded-xl flex flex-col items-center justify-center text-center">
+                    <div class="w-14 h-14 rounded-full bg-os-bg border border-os-border flex items-center justify-center text-3xl text-os-teal mb-4 shrink-0">
+                        ⚡️
+                    </div>
+                    <p class="text-2xl font-bold text-os-text-light">Support Status</p>
+                    <p class="text-sm text-os-text-muted mt-1 max-w-[200px]">Normal response times (< 24 hours)</p>
+                </div>
+            </section>
+            
+            <div class="h-10"></div> </main>
+    </div>
+
+</body>
+</html>
+
+{% endblock %}
+{% tailwind_css %}
