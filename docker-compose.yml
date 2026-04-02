@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./backend/fastapi_engine
+    container_name: workspace-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/fastapi_engine:/app
+      - /var/run/docker.sock:/var/run/docker.sock   # 🔥 IMPORTANT
+    restart: always
+
+  frontend:
+    build: ./frontend
+    container_name: workspace-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
+    restart: always
