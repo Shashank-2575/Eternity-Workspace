@@ -1,4 +1,7 @@
-# Logs
+/backend/fastapi_engine/.venv
+/node_modules
+/dist
+.vscode/#  Logs
 logs
 *.log
 npm-debug.log*
